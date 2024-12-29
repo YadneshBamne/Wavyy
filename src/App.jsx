@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import { Button } from './components/ui/button'
+import { Navbar } from './Navbar/Navbar';
+import { ManageTeam } from './Navbar/teamM/manageteam';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function TeamPage() {
   return (
-    <div className='w-full min-h-screen flex items-center justify-center bg-black'>
-      <Button variant="destructive">Click me</Button>
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <main className="p-8">
+        <ManageTeam />
+      </main>
     </div>
-  )
+  );
 }
-
-export default App
