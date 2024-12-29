@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export function Navbar() {
   return (
-    <nav className="flex justify-between items-center bg-white shadow-md p-4">
+    <nav className="flex justify-between items-center bg-white p-4 border-b border-gray-200">
       <div className="flex space-x-8">
         <span className="text-xl font-semibold">WAVVE</span>
         <div className="flex space-x-4">

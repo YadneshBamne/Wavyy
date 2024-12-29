@@ -18,8 +18,8 @@ export function Bookings() {
     return (
         <div>
             <Navbar />
-            <div className="p-8">
-                <div className="flex items-center mb-4 justify-between p-8">
+            <div className="p-8 bg-white">
+                <div className="flex items-center mb-4 justify-between py-8">
                     <div className="flex flex-col mb-7">
                         <span className="text-black font-bold text-3xl">Appointments</span>
                         <span className="text-gray-500 font-thin text-xl">view and export appointments booked by your clients</span>
@@ -35,7 +35,7 @@ export function Bookings() {
 
                 </div>
 
-                <div className="bg-white shadow-xl rounded-lg">
+                <div className="bg-white rounded-lg outline outline-2 outline-gray-200">
                     <div className="flex space-x-4 p-7">
                         <Input
                             type="text"
