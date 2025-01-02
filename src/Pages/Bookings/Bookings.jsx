@@ -1,10 +1,28 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Navbar } from "../Components/Navbar";
 import { Table, TableHeader, TableBody, TableRow, TableCell, TableHead } from "@/components/ui/table";
-
-
+import axios from "axios";
 export function Bookings() {
+
+    const [team, setTeam] = useState([]);
+    useEffect(() => {
+        // Call the API
+        fetch('http://localhost:8000/api/businesses')  // URL of your Django API
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);})
+          .catch((error) => {
+            console.error('There has been a problem with your fetch operation:', error);
+          });
+      }, []);
+
     const teamMembers = [
         { name: 'John Doe', phone: '7329892389', email: 'john@gmail.com', date: 'Jan 4, 2024', access: 'Admin' },
         { name: 'Circooles', phone: '1234235346', email: 'john@gmail.com', date: 'Jan 4, 2024', access: 'Admin' },

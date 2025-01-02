@@ -23,11 +23,11 @@ export function Navbar() {
             <Button variant="ghost">Calendar</Button>
           </NavLink>
           <NavLink
-            to="/sales"
+            to="/services"
             className="button-nav"
             activeClassName="bg-indigo-600 text-white"
           >
-            <Button variant="ghost">Sales</Button>
+            <Button variant="ghost">Services</Button>
           </NavLink>
           <NavLink
             to="/bookings"
