@@ -18,8 +18,8 @@ export function ManageTeam() {
   return (
     <div>
       <Navbar />
-      <div className="p-8"> 
-        <div className="flex items-center mb-4 justify-between p-8">
+      <div className="p-8 bg-white"> 
+        <div className="flex items-center mb-4 justify-between py-8">
           <div className="flex flex-col mb-7">
             <span className="text-black font-bold text-3xl">Manage team</span>
             <span className="text-gray-500 font-thin text-xl">view and manage your team members</span>
@@ -31,7 +31,7 @@ export function ManageTeam() {
           </div>
         </div>
 
-        <div className="w-full bg-white shadow-xl rounded-lg">
+        <div className="w-full bg-white rounded-lg outline outline-2 outline-gray-200">
           <div className="flex items-center mb-4 space-x-4 p-5">
             <Input
               type="text"
@@ -39,7 +39,7 @@ export function ManageTeam() {
               className="flex-grow p-5 border rounded-lg"
             />
           </div>
-          <Table className="w-full bg-white shadow-xl rounded-lg">
+          <Table className="w-full bg-white shadow-xl rounded-lg ">
             <TableHeader>
               <TableRow>
                 <TableHead className='text-black'>Team member</TableHead>

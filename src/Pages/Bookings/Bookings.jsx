@@ -1,10 +1,28 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Navbar } from "../Components/Navbar";
 import { Table, TableHeader, TableBody, TableRow, TableCell, TableHead } from "@/components/ui/table";
-
-
+import axios from "axios";
 export function Bookings() {
+
+    const [team, setTeam] = useState([]);
+    useEffect(() => {
+        // Call the API
+        fetch('http://localhost:8000/api/businesses')  // URL of your Django API
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);})
+          .catch((error) => {
+            console.error('There has been a problem with your fetch operation:', error);
+          });
+      }, []);
+
     const teamMembers = [
         { name: 'John Doe', phone: '7329892389', email: 'john@gmail.com', date: 'Jan 4, 2024', access: 'Admin' },
         { name: 'Circooles', phone: '1234235346', email: 'john@gmail.com', date: 'Jan 4, 2024', access: 'Admin' },
@@ -18,8 +36,8 @@ export function Bookings() {
     return (
         <div>
             <Navbar />
-            <div className="p-8">
-                <div className="flex items-center mb-4 justify-between p-8">
+            <div className="p-8 bg-white">
+                <div className="flex items-center mb-4 justify-between py-8">
                     <div className="flex flex-col mb-7">
                         <span className="text-black font-bold text-3xl">Appointments</span>
                         <span className="text-gray-500 font-thin text-xl">view and export appointments booked by your clients</span>
@@ -35,7 +53,7 @@ export function Bookings() {
 
                 </div>
 
-                <div className="bg-white shadow-xl rounded-lg">
+                <div className="bg-white rounded-lg outline outline-2 outline-gray-200">
                     <div className="flex space-x-4 p-7">
                         <Input
                             type="text"
