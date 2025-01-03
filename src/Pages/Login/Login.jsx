@@ -6,6 +6,7 @@ import logo from "../../assets/logo.svg";
 import one from "../../assets/one.svg";
 import two from "../../assets/two.svg";
 import three from "../../assets/three.svg";
+import { Link } from 'react-router-dom';
 
 export function Login() {
     const [step, setStep] = useState(1);
@@ -60,7 +61,7 @@ export function Login() {
     };
 
     return (
-        <div className="flex w-full h-screen">
+        <div className="flex w-full h-screen items-center">
             <div className="flex-[60%] bg-white p-12">
                 <nav>
                     <img src={logo} className="m-4" alt="Logo" />
@@ -89,7 +90,7 @@ export function Login() {
                         <div className="mb-4">
                             <label className="text-sm font-semibold text-gray-700" htmlFor="phoneNumber">Phone Number</label>
                             <div className="flex bg-white rounded-lg border border-gray-300 p-1 mt-2 w-full">
-                                <span className="text-gray-500">+91</span>
+                                <span className="text-gray-500 mt-2">+91</span>
                                 <Input
                                     className="flex-1 p-2 text-lg border-none outline-none"
                                     id="phoneNumber"
@@ -101,7 +102,7 @@ export function Login() {
                             </div>
 
                             <div className="text-right text-sm text-gray-500 mt-4">
-                                Already have an account? <span className="text-indigo-600 font-semibold cursor-pointer">Login</span>
+                                New here? Create an account <Link to='/register' className="text-indigo-600 font-semibold cursor-pointer">Register</Link>
                             </div>
 
                             <div className="mt-8 flex justify-center">

@@ -2,9 +2,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Navbar } from "../Components/Navbar";
 import { Table, TableHeader, TableBody, TableRow, TableCell, TableHead } from "@/components/ui/table";
-
+import { Calendar, Delete, Pen, Trash2 } from "lucide-react";
+import { useState } from "react";
+import { Drawer,  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle, } from "@/components/ui/drawer";
 
 export function ManageTeam() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  // Function to toggle drawer visibility
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
   const teamMembers = [
     { name: 'John Doe', phone: '7329892389', email: 'john@gmail.com', date: 'Jan 4, 2024', access: 'Admin' },
     { name: 'Circooles', phone: '1234235346', email: 'john@gmail.com', date: 'Jan 4, 2024', access: 'Admin' },
@@ -25,8 +38,8 @@ export function ManageTeam() {
             <span className="text-gray-500 font-thin text-xl">view and manage your team members</span>
           </div>
           <div className="space-x-4">
-            <Button variant="secondary" className="bg-purple-600 text-white hover:bg-purple-700 px-4 py-2 rounded-lg">
-              Invite
+            <Button onClick={toggleDrawer} variant="secondary" className="bg-purple-600 text-white hover:bg-purple-700 px-4 py-2 rounded-lg">
+              Invite member
             </Button>
           </div>
         </div>
@@ -62,14 +75,35 @@ export function ManageTeam() {
                   <TableCell>{member.date}</TableCell>
                   <TableCell>{member.access}</TableCell>
                   <TableCell className="flex space-x-2">
-                    {/* Add action buttons here */}
-                    <button className="text-blue-500 hover:underline">Edit</button>
-                    <button className="text-red-500 hover:underline">Delete</button>
-                  </TableCell>
+                                        {/* Add action buttons here */}
+                                        <button className="text-black"><Pen className="w-4 h-4" /></button>
+                                        <button className="text-black"><Calendar className="w-4 h-4"/></button>
+                                        <button className="text-black"><Trash2 className="w-4 h-4"/></button>
+                                    </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
+          <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+          <DrawerContent className="flex bg-black justify-center items-center border-none">
+            <div className="max-w-md w-full bg-white rounded-3xl shadow-md p-6 m-10">
+              <DrawerHeader>
+                <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+                <DrawerDescription>
+                  This action cannot be undone.
+                </DrawerDescription>
+              </DrawerHeader>
+              <DrawerFooter>
+                <Button className="bg-purple-600" onClick={toggleDrawer}>Submit</Button>
+                <DrawerClose>
+                  <Button variant="outline" onClick={toggleDrawer}>
+                    Cancel
+                  </Button>
+                </DrawerClose>
+              </DrawerFooter>
+            </div>
+          </DrawerContent>
+        </Drawer>
         </div>
       </div>
     </div>
